@@ -1,0 +1,115 @@
+/* Google Font */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url("image.jpg");
+  background-color: #f7f9fc;
+  color: #333;
+}
+
+/* Container Setup */
+header, section, footer {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Header Styles */
+header {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+}
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.header-content img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+}
+
+.header-content h1 {
+  font-size: 2em;
+  margin: 0;
+}
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  color: #fff;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Section Styling */
+section {
+  background: #fff;
+  margin-top: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+section h2 {
+  font-size: 1.8em;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+section p {
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+/* Project Cards */
+.project-card {
+  background: #eef1f5;
+  padding: 15px;
+  margin: 15px 0;
+  border-left: 4px solid #222;
+  border-radius: 4px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 1.2em;
+  color: white;
+  margin-top: 40px;
+  padding: 20px 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.6em;
+  }
+
+  nav a {
+    display: block;
+    margin: 8px 0;
+  }
+
+  section h2 {
+    font-size: 1.4em;
+  }
+  #contact i {
+  margin-right: 10px;
+  color: #222;
+}
+
+}
