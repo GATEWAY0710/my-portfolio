@@ -269,6 +269,10 @@ export default function About() {
           .timeline-item > div:first-child {
             justify-content: flex-start !important;
           }
+          .timeline-item > div:last-child {
+            margin-left: 0 !important;
+            padding: 1.5rem !important;
+          }
         }
       `}</style>
     </section>

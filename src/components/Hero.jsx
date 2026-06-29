@@ -232,7 +232,7 @@ def run_analytical_etl(raw_data_path):
               right: '20px',
               zIndex: 10,
               boxShadow: '0 10px 30px rgba(0,0,0,0.5)'
-            }} className="profile-bubble-hover">
+            }} className="profile-bubble">
               <div style={{
                 position: 'relative',
                 width: '60px',
@@ -241,7 +241,7 @@ def run_analytical_etl(raw_data_path):
                 overflow: 'hidden',
                 border: '2px solid var(--primary)',
                 boxShadow: '0 0 15px rgba(14, 165, 233, 0.4)'
-              }}>
+               }}>
                 <img 
                   src="/gateway.jpg" 
                   alt="Muhammed Nurudeen" 
@@ -306,8 +306,11 @@ def run_analytical_etl(raw_data_path):
               <div style={{
                 display: 'flex',
                 background: 'rgba(0, 0, 0, 0.15)',
-                borderBottom: '1px solid rgba(255, 255, 255, 0.05)'
-              }}>
+                borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
+                overflowX: 'auto',
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none'
+              }} className="editor-tabs-container">
                 {Object.keys(codeSnippets).map((tab) => (
                   <button
                     key={tab}
@@ -325,7 +328,8 @@ def run_analytical_etl(raw_data_path):
                       display: 'flex',
                       alignItems: 'center',
                       gap: '0.4rem',
-                      outline: 'none'
+                      outline: 'none',
+                      flexShrink: 0
                     }}
                   >
                     <span style={{
@@ -444,11 +448,25 @@ def run_analytical_etl(raw_data_path):
           0%, 100% { opacity: 1; transform: scale(1); }
           50% { opacity: 0.4; transform: scale(1.2); }
         }
-        .profile-bubble-hover {
+        .profile-bubble {
           transition: var(--transition-smooth);
         }
-        .profile-bubble-hover:hover {
+        .profile-bubble:hover {
           transform: scale(1.05) translateY(-5px);
+        }
+        @media (max-width: 768px) {
+          .profile-bubble {
+            position: relative !important;
+            top: 0 !important;
+            right: 0 !important;
+            margin: 0 auto 1.5rem !important;
+            width: 100% !important;
+            max-width: 280px !important;
+            justify-content: center;
+          }
+        }
+        .editor-tabs-container::-webkit-scrollbar {
+          display: none;
         }
         .copy-btn {
           transition: var(--transition-fast);
