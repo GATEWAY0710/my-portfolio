@@ -11,13 +11,13 @@ export default function Footer() {
       textAlign: 'center',
       marginTop: 'auto'
     }}>
-      <div className="container" style={{
+      <div className="container md-footer-row" style={{
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         gap: '1rem',
         justifyContent: 'space-between'
-      }} className="md-footer-row">
+      }}>
         
         {/* Left Signature */}
         <div style={{

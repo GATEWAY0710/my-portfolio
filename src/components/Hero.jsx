@@ -105,7 +105,9 @@ def run_analytical_etl(raw_data_path):
           display: 'grid',
           gridTemplateColumns: '1fr',
           gap: '4rem',
-          alignItems: 'center'
+          alignItems: 'center',
+          width: '100%',
+          minWidth: 0
         }} className="lg-grid-2">
           
           {/* Left Text Column */}
@@ -113,7 +115,7 @@ def run_analytical_etl(raw_data_path):
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}
+            style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', minWidth: 0 }}
           >
             {/* Custom Badge */}
             <div style={{
@@ -213,7 +215,8 @@ def run_analytical_etl(raw_data_path):
               width: '100%',
               display: 'flex',
               flexDirection: 'column',
-              gap: '2rem'
+              gap: '2rem',
+              minWidth: 0
             }}
           >
             {/* Hovering Profile Bubble (Saves space and looks extremely high end) */}
@@ -267,7 +270,10 @@ def run_analytical_etl(raw_data_path):
               overflow: 'hidden',
               boxShadow: '0 20px 40px rgba(0,0,0,0.5)',
               border: '1px solid rgba(255, 255, 255, 0.08)',
-              background: 'rgba(3, 7, 18, 0.8)'
+              background: 'rgba(3, 7, 18, 0.8)',
+              width: '100%',
+              maxWidth: '100%',
+              minWidth: 0
             }}>
               
               {/* Window Header */}
