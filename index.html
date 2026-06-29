@@ -1,168 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammed Nurudeen | Backend & Data Engineer</title>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muhammed Nurudeen | Full-Stack Python Engineer & AI Specialist</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Portfolio of Muhammed Nurudeen Olalekan - Full-Stack Python Engineer, Data Analyst, and AI/ML Specialist. Architecting scalable backends, agentic AI, and data solutions." />
+    <meta name="keywords" content="Muhammed Nurudeen, Python Developer, Backend Engineer, FastAPI, Django, Data Analyst, Machine Learning, AI Agent, React JS Developer" />
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <nav class="navbar">
-        <div class="logo">MN.</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#skills">Stack</a></li>
-            <li><a href="#projects">Work</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-    </nav>
-
-    <header id="home" class="hero">
-        <div class="hero-content">
-            <img src="gateway.jpg" alt="Muhammed Nurudeen" class="profile-img">
-            <span class="badge">Python Backend Developer</span>
-            <h1>Architecting Scalable <span class="gradient-text">Systems</span> & <span class="gradient-text">Data Solutions</span>.</h1>
-            <p>I am Muhammed Nurudeen. I build high-performance APIs with FastAPI, robust platforms with Django, and actionable insights with Data Science.</p>
-            <div class="cta-group">
-                <a href="#projects" class="btn btn-primary">View Projects</a>
-                <a href="https://github.com/GATEWAY0710" target="_blank" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
-            </div>
-        </div>
-        <div class="hero-visual">
-            <div class="code-block">
-<pre><code><span class="keyword">class</span> <span class="class-name">Engineer</span>:
-    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="self">self</span>):
-        <span class="self">self</span>.stack = [
-            <span class="string">"Python"</span>, 
-            <span class="string">"FastAPI"</span>, 
-            <span class="string">"Django"</span>
-        ]
-
-    <span class="keyword">def</span> <span class="function">solve_problem</span>(<span class="self">self</span>):
-        <span class="keyword">return</span> <span class="string">"Optimized Solution"</span></code></pre>
-            </div>
-        </div>
-    </header>
-
-    <section id="skills" class="skills-section">
-        <div class="container">
-            <h2 class="section-title">Technical Arsenal</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <i class="fab fa-python"></i>
-                    <h3>Python Core</h3>
-                    <p>Advanced scripting, OOP, and functional patterns.</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-server"></i>
-                    <h3>Backend Engineering</h3>
-                    <p>FastAPI, Django, REST, Microservices.</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-database"></i>
-                    <h3>Data & Database</h3>
-                    <p>PostgreSQL, Pandas, Data Analysis.</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-cloud"></i>
-                    <h3>DevOps & Tools</h3>
-                    <p>Git, Docker, Linux environments.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="projects-section">
-        <div class="container">
-            <h2 class="section-title">Featured Work</h2>
-            <div class="projects-grid">
-                
-                <!-- Project 1: FastAPI -->
-                <article class="project-card">
-                    <div class="card-header">
-                        <i class="fas fa-bolt card-icon"></i>
-                        <div class="links">
-                            <a href="https://github.com/GATEWAY0710/GatewayStoreFastApi.git" target="_blank" title="View Code"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <h3>GatewayStore FastAPI</h3>
-                        <p class="tech-stack"><span>FastAPI</span> <span>AsyncPG</span> <span>Docker</span></p>
-                        <p class="description">
-                            A high-performance microservice API engineered for speed and concurrency. Utilizes Python's modern async capabilities to handle complex e-commerce transactions with millisecond latency.
-                        </p>
-                    </div>
-                </article>
-
-                <!-- Project 2: Django -->
-                <article class="project-card">
-                    <div class="card-header">
-                        <i class="fab fa-python card-icon"></i>
-                        <div class="links">
-                            <a href="https://github.com/GATEWAY0710/GatewayStore.git" target="_blank" title="View Code"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <h3>GatewayStore Django</h3>
-                        <p class="tech-stack"><span>Django</span> <span>DRF</span> <span>PostgreSQL</span></p>
-                        <p class="description">
-                            A robust, monolithic e-commerce platform. Features comprehensive inventory management, secure user authentication with JWT, and a scalable ORM architecture designed for enterprise-grade reliability.
-                        </p>
-                    </div>
-                </article>
-
-                <!-- Project 3: Insights -->
-                <article class="project-card">
-                    <div class="card-header">
-                        <i class="fas fa-chart-line card-icon"></i>
-                        <div class="links">
-                            <a href="https://github.com/GATEWAY0710/GatewayInsights.git" target="_blank" title="View Code"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <h3>Gateway Insights</h3>
-                        <p class="tech-stack"><span>Pandas</span> <span>Data Viz</span> <span>Analytics</span></p>
-                        <p class="description">
-                            An advanced data analytics suite designed to transform raw operational data into actionable business intelligence. Features automated reporting pipelines and trend forecasting models.
-                        </p>
-                    </div>
-                </article>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2>Let's Build Something Great.</h2>
-            <p>I'm currently available for freelance work and full-time engineering roles.</p>
-            <div class="contact-actions">
-                <a href="mailto:gateway0710@gmail.com" class="btn btn-primary big-btn"><i class="fas fa-envelope"></i> Say Hello</a>
-                <a href="https://wa.me/2348087644781" target="_blank" class="btn btn-secondary big-btn"><i class="fab fa-whatsapp"></i> 08087644781</a>
-            </div>
-            
-            <div class="social-links">
-                <a href="https://github.com/GATEWAY0710" target="_blank">GitHub</a>
-                <a href="mailto:gateway0710@gmail.com">Email</a>
-                <!-- Add LinkedIn here if available -->
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Muhammed Nurudeen. Built with performance in mind.</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
+
