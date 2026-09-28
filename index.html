@@ -48,7 +48,7 @@
       never be detected. This hidden copy is what registers the "contact" form in
       the Netlify dashboard. Contact.jsx posts to "/" with form-name=contact.
     -->
-    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+    <form name="contact" method="POST" netlify netlify-honeypot="bot-field" hidden>
       <input type="text" name="name" />
       <input type="email" name="email" />
       <textarea name="message"></textarea>
