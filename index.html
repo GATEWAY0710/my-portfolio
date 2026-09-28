@@ -4,12 +4,35 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Muhammed Nurudeen | Full-Stack Python Engineer & AI Specialist</title>
+    <title>Muhammed Nurudeen | Python Backend Engineer &amp; AI/ML Engineer</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Portfolio of Muhammed Nurudeen Olalekan - Full-Stack Python Engineer, Data Analyst, and AI/ML Specialist. Architecting scalable backends, agentic AI, and data solutions." />
-    <meta name="keywords" content="Muhammed Nurudeen, Python Developer, Backend Engineer, FastAPI, Django, Data Analyst, Machine Learning, AI Agent, React JS Developer" />
-    
+    <meta name="description" content="Portfolio of Muhammed Nurudeen Olalekan - Python Backend Engineer and AI/ML Engineer. Building REST APIs in FastAPI and Django, agentic LLM systems with MCP tool calling, and computer-vision pipelines in PyTorch." />
+    <meta name="keywords" content="Muhammed Nurudeen, Python Backend Engineer, AI/ML Engineer, FastAPI, Django, PyTorch, MCP, Ollama, Machine Learning, Computer Vision, AWS, Docker" />
+    <meta name="author" content="Muhammed Nurudeen Olalekan" />
+    <meta name="theme-color" content="#0b1120" />
+    <link rel="canonical" href="https://melodic-zuccutto-103f65.netlify.app/" />
+
+    <!-- Open Graph / social share previews -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://melodic-zuccutto-103f65.netlify.app/" />
+    <meta property="og:site_name" content="Muhammed Nurudeen" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="Muhammed Nurudeen | Python Backend Engineer &amp; AI/ML Engineer" />
+    <meta property="og:description" content="REST APIs in FastAPI and Django, agentic LLM systems with MCP tool calling, and computer-vision pipelines in PyTorch." />
+    <meta property="og:image" content="https://melodic-zuccutto-103f65.netlify.app/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Muhammed Nurudeen - Python Backend Engineer and AI/ML Engineer" />
+
+    <!-- Twitter / X card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://melodic-zuccutto-103f65.netlify.app/" />
+    <meta name="twitter:title" content="Muhammed Nurudeen | Python Backend Engineer &amp; AI/ML Engineer" />
+    <meta name="twitter:description" content="REST APIs in FastAPI and Django, agentic LLM systems with MCP tool calling, and computer-vision pipelines in PyTorch." />
+    <meta name="twitter:image" content="https://melodic-zuccutto-103f65.netlify.app/og-image.jpg" />
+    <meta name="twitter:image:alt" content="Muhammed Nurudeen - Python Backend Engineer and AI/ML Engineer" />
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,6 +40,24 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <!--
+      Static Netlify form declaration.
+      Netlify parses the BUILT index.html at deploy time to register forms, and the
+      real form in src/components/Contact.jsx is rendered client-side, so it would
+      never be detected. This hidden copy is what registers the "contact" form in
+      the Netlify dashboard. Contact.jsx posts to "/" with form-name=contact.
+    -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+      <input type="hidden" name="form-name" value="contact" />
+      <p>
+        <label>Do not fill this out: <input name="bot-field" /></label>
+      </p>
+    </form>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

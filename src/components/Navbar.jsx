@@ -161,7 +161,7 @@ export default function Navbar() {
             <a href="https://linkedin.com/in/muhammed-nurudeen-433749315" target="_blank" rel="noreferrer" style={{ color: 'var(--text-muted)' }} className="social-hover">
               <Linkedin size={18} />
             </a>
-            <a href="mailto:gateway0710@gmail.com" style={{ color: 'var(--text-muted)' }} className="social-hover">
+            <a href="mailto:alowonleboy01@gmail.com" style={{ color: 'var(--text-muted)' }} className="social-hover">
               <Mail size={18} />
             </a>
           </div>
@@ -233,7 +233,7 @@ export default function Navbar() {
             <a href="https://linkedin.com/in/muhammed-nurudeen-433749315" target="_blank" rel="noreferrer" style={{ color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <Linkedin size={20} /> <span>LinkedIn</span>
             </a>
-            <a href="mailto:gateway0710@gmail.com" style={{ color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <a href="mailto:alowonleboy01@gmail.com" style={{ color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <Mail size={20} /> <span>Email</span>
             </a>
           </div>

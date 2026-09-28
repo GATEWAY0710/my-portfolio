@@ -11,27 +11,42 @@ export default function About() {
       period: "Jan 2026 - Present",
       type: "Full-Time",
       description: [
-        "Engineered the backend of an Incident Report Management App using FastAPI and MySQL, integrating Gemini LLM to automate incident analysis and reduce manual reporting time.",
-        "Built an agentic AI assistant for the University Portal, enabling students to query personalized academic data (grades, schedules, fees) via a natural language chat interface (FastAPI + MySQL).",
-        "Developed the frontend of the University Portal using React.js, building dynamic dashboards for academic operations, user management, and administration.",
-        "Designed and delivered a structured Python curriculum covering fundamentals, OOP, and software engineering best practices for 20+ students, mentoring junior devs."
+        "Engineered the backend of an Incident Report Management System using FastAPI and MySQL, implementing role-based access control and JWT authentication to restrict data access by user tier.",
+        "Integrated Google's Gemini LLM to produce structured incident analysis, automating report summarisation previously handled manually.",
+        "Built an agentic AI assistant for the university portal in FastAPI, calling the school's existing ASP.NET Core services and forwarding the user's JWT so the model acts on their behalf.",
+        "Refactored the assistant onto a Model Context Protocol (MCP) architecture, granting scoped tool-level access to the database in place of a fixed endpoint contract, and streamed Ollama-hosted responses to the client.",
+        "Developed the React.js frontend for the university portal, building dynamic dashboards for academic operations, user management, and administration.",
+        "Designed and delivered a structured Python curriculum covering fundamentals, data structures, OOP, and software engineering best practices for 20+ students, and mentored junior devs on REST API design and Git workflows."
       ],
-      tags: ["FastAPI", "React.js", "MySQL", "Gemini LLM", "Agentic AI", "Mentoring"]
+      tags: ["FastAPI", "MySQL", "React.js", "Gemini LLM", "MCP", "Ollama", "Mentoring"]
+    },
+    {
+      role: "AI Engineer",
+      company: "Jupiter AI Labs",
+      location: "Remote",
+      period: "Dec 2025 - Present",
+      type: "Contract",
+      description: [
+        "Evaluated LLM-generated responses against defined quality and accuracy criteria, providing structured feedback to guide improvements in model output.",
+        "Assessed responses for correctness, relevance, and instruction adherence across use cases to support model quality assurance."
+      ],
+      tags: ["LLM Evaluation", "Model QA", "Prompt Engineering"]
     },
     {
       role: "Freelance Python, Data & AI Engineer",
       company: "Self-Employed",
       location: "Remote",
-      period: "2020 - Present",
+      period: "Apr 2025 - Present",
       type: "Contract",
       description: [
-        "Designed and deployed 10+ scalable REST APIs using FastAPI and Django with JWT authentication serving clients globally.",
-        "Built end-to-end data analysis pipelines (ingesting, cleaning, transforming) and delivered business insights via Power BI dashboards and reports.",
-        "Developed ML models for predictive analytics and NLP-based automation (text classification, sentiment analysis) integrated into production web apps.",
-        "Automated ETL workflows using Pandas and NumPy, reducing manual data processing effort by an estimated 60% for corporate clients.",
-        "Optimized relational database schemas (PostgreSQL, MySQL), improving query performance and data integrity for high-volume applications."
+        "Designed and delivered 10+ REST APIs using FastAPI and Django with JWT authentication for client engagements.",
+        "Built ETL pipelines in Pandas and NumPy, ingesting, cleaning and transforming datasets for client reporting and Power BI dashboards.",
+        "Developed machine learning models for predictive analytics and NLP tasks including text classification and sentiment analysis, integrated into production web applications.",
+        "Integrated OpenAI LLM APIs into client workflows to automate content generation, customer support, and data summarisation.",
+        "Deployed services to AWS EC2 and ran application components as containers using Docker Compose.",
+        "Optimised relational database schemas and queries in PostgreSQL and MySQL to improve data integrity and retrieval performance."
       ],
-      tags: ["Django", "FastAPI", "Pandas", "Power BI", "Scikit-Learn", "PostgreSQL", "OpenAI API"]
+      tags: ["FastAPI", "Django", "Pandas", "Power BI", "Scikit-Learn", "AWS EC2", "Docker"]
     }
   ];
 

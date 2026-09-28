@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Github = ({ size = 24, ...props }) => (
@@ -21,22 +21,40 @@ export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
-    
+
     setIsSubmitting(true);
-    
-    // Simulate API request
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitSuccess(true);
+    setSubmitError('');
+
+    // Posts to the "contact" form registered in index.html. Submissions land in the
+    // Netlify dashboard under Forms.
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          'form-name': 'contact',
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }).toString(),
+      });
+
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
       setFormData({ name: '', email: '', message: '' });
-      
-      // Auto close success message after 5 seconds
+      setSubmitSuccess(true);
       setTimeout(() => setSubmitSuccess(false), 5000);
-    }, 1500);
+    } catch (err) {
+      console.error('Contact form submission failed:', err);
+      setSubmitError('Your message could not be sent. Please email me directly at alowonleboy01@gmail.com.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -47,8 +65,8 @@ export default function Contact() {
   const contactInfo = [
     {
       title: "Email",
-      value: "gateway0710@gmail.com",
-      link: "mailto:gateway0710@gmail.com",
+      value: "alowonleboy01@gmail.com",
+      link: "mailto:alowonleboy01@gmail.com",
       icon: <Mail size={20} />,
       color: "var(--primary)"
     },
@@ -319,6 +337,32 @@ export default function Contact() {
                   >
                     <CheckCircle2 size={18} />
                     <span>Thank you! Your message has been sent successfully.</span>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Error Notification */}
+              <AnimatePresence>
+                {submitError && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      gap: '0.6rem',
+                      background: 'rgba(239, 68, 68, 0.1)',
+                      border: '1px solid rgba(239, 68, 68, 0.25)',
+                      color: '#fca5a5',
+                      padding: '1rem',
+                      borderRadius: '8px',
+                      marginTop: '1.5rem',
+                      fontSize: '0.9rem'
+                    }}
+                  >
+                    <AlertCircle size={18} style={{ flexShrink: 0, marginTop: '1px' }} />
+                    <span>{submitError}</span>
                   </motion.div>
                 )}
               </AnimatePresence>

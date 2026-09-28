@@ -1,59 +1,57 @@
 import React from 'react';
-import { Database, Cpu, BarChart3, Layout, ChevronRight } from 'lucide-react';
+import { Server, Cpu, BarChart3, Cloud, Layout } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function Skills() {
   const skillCategories = [
     {
       title: "Backend Engineering",
-      icon: <Database size={24} />,
+      icon: <Server size={24} />,
       color: "var(--primary)",
+      rgb: "14, 165, 233",
       items: [
-        { name: "Python Core / OOP", level: 95 },
-        { name: "FastAPI / Async REST APIs", level: 92 },
-        { name: "Django / Django REST Framework", level: 88 },
-        { name: "SQLAlchemy & ORM Patterns", level: 90 },
-        { name: "JWT Auth & Security RBAC", level: 85 },
-        { name: "PostgreSQL & MySQL Optimization", level: 87 }
+        "Python", "SQL", "FastAPI", "Django", "REST API design", "API versioning",
+        "Pydantic", "SQLAlchemy", "Alembic", "JWT authentication", "RBAC"
       ]
     },
     {
       title: "AI & Machine Learning",
       icon: <Cpu size={24} />,
       color: "var(--secondary)",
+      rgb: "139, 92, 246",
       items: [
-        { name: "LLM Orchestration (LangChain)", level: 88 },
-        { name: "Agentic AI / Tool Use APIs", level: 85 },
-        { name: "Natural Language Processing (NLP)", level: 80 },
-        { name: "Predictive Analytics Models", level: 82 },
-        { name: "Anomaly Detection Pipelines", level: 84 },
-        { name: "Scikit-Learn / ML Models", level: 80 }
+        "PyTorch", "scikit-learn", "scikit-image", "OpenCV", "Albumentations",
+        "MCP", "Tool calling", "Ollama", "LLM integration", "NLP",
+        "Predictive analytics", "Anomaly detection"
       ]
     },
     {
-      title: "Data & Analytics",
+      title: "Data & Databases",
       icon: <BarChart3 size={24} />,
       color: "var(--tertiary)",
+      rgb: "16, 185, 129",
       items: [
-        { name: "Pandas & NumPy", level: 92 },
-        { name: "ETL / Data Wrangling Automation", level: 90 },
-        { name: "Power BI Dashboards", level: 85 },
-        { name: "Advanced SQL Queries", level: 88 },
-        { name: "Advanced Excel Modeling", level: 82 },
-        { name: "BeautifulSoup / Web Scraping", level: 86 }
+        "Pandas", "NumPy", "matplotlib", "seaborn", "Power BI", "Excel",
+        "ETL", "Data wrangling", "MySQL", "PostgreSQL", "Schema design", "Query optimisation"
       ]
     },
     {
-      title: "Frontend & DevOps Tools",
-      icon: <Layout size={24} />,
-      color: "#fbbf24", // Yellow/Amber
+      title: "Cloud, DevOps & Testing",
+      icon: <Cloud size={24} />,
+      color: "#fbbf24",
+      rgb: "251, 191, 36",
       items: [
-        { name: "React.js & State Management", level: 85 },
-        { name: "TailwindCSS & Responsive UIs", level: 90 },
-        { name: "Git / GitHub Workflows", level: 90 },
-        { name: "Docker & Containerization", level: 78 },
-        { name: "Streamlit UI Applications", level: 88 },
-        { name: "Netlify / Vercel Deployments", level: 85 }
+        "AWS (EC2)", "Docker", "Docker Compose", "Linux / Ubuntu", "Git",
+        "GitHub", "pytest", "Unit testing", "Netlify", "Vercel"
+      ]
+    },
+    {
+      title: "Frontend",
+      icon: <Layout size={24} />,
+      color: "#f472b6",
+      rgb: "244, 114, 182",
+      items: [
+        "React.js", "Next.js", "TailwindCSS", "HTML5", "CSS3"
       ]
     }
   ];
@@ -119,8 +117,8 @@ export default function Skills() {
                   width: '46px',
                   height: '46px',
                   borderRadius: '12px',
-                  background: `rgba(${category.color === 'var(--primary)' ? '14, 165, 233' : category.color === 'var(--secondary)' ? '139, 92, 246' : category.color === 'var(--tertiary)' ? '16, 185, 129' : '251, 191, 36'}, 0.1)`,
-                  border: `1px solid rgba(${category.color === 'var(--primary)' ? '14, 165, 233' : category.color === 'var(--secondary)' ? '139, 92, 246' : category.color === 'var(--tertiary)' ? '16, 185, 129' : '251, 191, 36'}, 0.25)`,
+                  background: `rgba(${category.rgb}, 0.1)`,
+                  border: `1px solid rgba(${category.rgb}, 0.25)`,
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
@@ -135,51 +133,27 @@ export default function Skills() {
                 }}>{category.title}</h3>
               </div>
 
-              {/* Skills Progress List */}
+              {/* Skill Chips */}
               <div style={{
                 display: 'flex',
-                flexDirection: 'column',
-                gap: '1.2rem'
+                flexWrap: 'wrap',
+                gap: '0.5rem'
               }}>
                 {category.items.map((skill, sIdx) => (
-                  <div key={sIdx} style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                    <div style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                      fontSize: '0.9rem'
-                    }}>
-                      <span style={{ color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
-                        <ChevronRight size={12} style={{ color: category.color, opacity: 0.8 }} />
-                        {skill.name}
-                      </span>
-                      <span style={{ fontWeight: 600, color: 'var(--text-main)', opacity: 0.8 }}>{skill.level}%</span>
-                    </div>
-
-                    {/* Progress Bar Track */}
-                    <div style={{
-                      height: '6px',
-                      background: 'rgba(255,255,255,0.04)',
-                      borderRadius: '10px',
-                      overflow: 'hidden',
-                      width: '100%',
-                      border: '1px solid rgba(255,255,255,0.02)'
-                    }}>
-                      {/* Active Progress Bar */}
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, ease: "easeOut" }}
-                        style={{
-                          height: '100%',
-                          background: category.color,
-                          borderRadius: '10px',
-                          boxShadow: `0 0 10px ${category.color}44`
-                        }}
-                      />
-                    </div>
-                  </div>
+                  <span
+                    key={sIdx}
+                    style={{
+                      fontSize: '0.8rem',
+                      color: 'var(--text-main)',
+                      background: `rgba(${category.rgb}, 0.1)`,
+                      border: `1px solid rgba(${category.rgb}, 0.25)`,
+                      padding: '0.35rem 0.7rem',
+                      borderRadius: '6px',
+                      whiteSpace: 'nowrap'
+                    }}
+                  >
+                    {skill}
+                  </span>
                 ))}
               </div>
             </motion.div>

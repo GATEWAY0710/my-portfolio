@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink, Bot, Database, BarChart, ShoppingCart, Activity, ShieldCheck } from 'lucide-react';
+import { ExternalLink, Bot, Database, BarChart, ShoppingCart, Activity, ShieldCheck, Cpu, TrendingUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Github = ({ size = 24, ...props }) => (
@@ -18,23 +18,31 @@ export default function Projects() {
     {
       title: "University Student Portal AI Agent",
       category: "AI & ML",
-      description: "An agentic AI chatbot allowing students to query academic results, timetables, and fee status. Enforces strict per-student data isolation and secure database tool-calling with RBAC.",
-      tech: ["FastAPI", "MySQL", "React.js", "OpenAI API", "LangChain"],
+      description: "A FastAPI agent that answers student questions over an authenticated portal session, streaming replies from an Ollama-hosted model through tool calling (student profile, dashboard, fee ledger, payment history). Built on hexagonal architecture, with no student identifiers routed through the model, so one student's data cannot surface in another student's answer.",
+      tech: ["FastAPI", "Ollama", "MCP", "Pydantic", "Python"],
       github: "https://github.com/GATEWAY0710/student-support-ai-chatbox",
       icon: <Bot size={20} />
     },
     {
-      title: "GPT-Powered Data Analytics Assistant",
+      title: "Garment Panel Segmentation Pipeline",
+      category: "AI & ML",
+      description: "A PyTorch U-Net with a MobileNetV3-Small encoder (under 2M trainable parameters) trained on Fashionpedia to segment garment panels. Includes deterministic left/right sleeve ordering via image-space centroids, an importable fabric-fill function, a test suite covering parameter limits, labels and flips, and a latency benchmark.",
+      tech: ["PyTorch", "U-Net", "MobileNetV3", "Albumentations", "OpenCV"],
+      github: "https://github.com/GATEWAY0710/ML-ENGINEER-ASSESSMENT",
+      icon: <Cpu size={20} />
+    },
+    {
+      title: "Crypto Data Engineering & Backtesting Pipeline",
       category: "Data & Analytics",
-      description: "An interactive Streamlit app that ingests datasets, performing automated anomaly detection and generating natural language business summaries & trends from financial and operational data.",
-      tech: ["Python", "OpenAI API", "Streamlit", "Pandas", "ETL"],
-      github: "https://github.com/GATEWAY0710/Agentic-AI-",
-      icon: <BarChart size={20} />
+      description: "A Python pipeline that ingests BTCUSDT klines at 1h and 4h resolution, derives trading signals, runs a backtest, and exports metrics, trade logs, alert payloads, and performance charts.",
+      tech: ["Python", "Pandas", "NumPy", "Matplotlib", "JSON"],
+      github: "https://github.com/GATEWAY0710/Muhammed_Nurudeen_-ARK-Data-engineer-Take-home",
+      icon: <TrendingUp size={20} />
     },
     {
       title: "Incident Report Management System",
       category: "AI & ML",
-      description: "A secure incident tracking system featuring Gemini LLM integrations to automate report summaries, custom SQL optimization for low-latency queries, and Role-Based Access Control (RBAC).",
+      description: "A secure incident tracking system with Gemini LLM integration that drafts report summaries, and role-based access control so staff only see the incidents their role permits.",
       tech: ["FastAPI", "MySQL", "React.js", "Gemini LLM", "TailwindCSS"],
       github: "https://github.com/GATEWAY0710",
       icon: <ShieldCheck size={20} />
@@ -42,25 +50,33 @@ export default function Projects() {
     {
       title: "GatewayStore FastAPI",
       category: "Backend Engineering",
-      description: "A high-performance async microservice API engineered for speed. Leverages modern asynchronous Python, managing transactional integrity with millisecond-scale latency under load.",
-      tech: ["FastAPI", "AsyncPG", "Docker", "PostgreSQL", "Pydantic"],
+      description: "An async FastAPI service built on dependency injection, with JWT authentication, a SQLAlchemy ORM layer managed through Alembic migrations, and MySQL persistence via PyMySQL.",
+      tech: ["FastAPI", "Pydantic", "SQLAlchemy", "Alembic", "PyJWT", "MySQL"],
       github: "https://github.com/GATEWAY0710/GatewayStoreFastApi",
       icon: <Activity size={20} />
     },
     {
       title: "GatewayStore Django",
       category: "Backend Engineering",
-      description: "A monolithic e-commerce platform featuring inventory management, JWT-based customer authentication, and a clean database ORM architecture designed for enterprise-grade reliability.",
+      description: "An e-commerce platform with inventory management, JWT-based customer authentication, and a Django ORM data layer.",
       tech: ["Django", "Django REST Framework", "PostgreSQL", "JWT", "SQL"],
       github: "https://github.com/GATEWAY0710/GatewayStore",
       icon: <ShoppingCart size={20} />
     },
     {
+      title: "GPT-Powered Data Analytics Assistant",
+      category: "Data & Analytics",
+      description: "An interactive Streamlit app that ingests datasets, runs automated anomaly detection, and generates natural language business summaries and trend breakdowns from financial and operational data.",
+      tech: ["Python", "OpenAI API", "Streamlit", "Pandas", "ETL"],
+      github: null,
+      icon: <BarChart size={20} />
+    },
+    {
       title: "Data Wrangling Automation Suite",
       category: "Data & Analytics",
-      description: "A library of reusable ETL scripts for data cleansing, standardization, and analytics workflows, reducing manual processing efforts by 60% across corporate engagements.",
-      tech: ["Python", "Pandas", "NumPy", "Jupyter Notebook", "Excel"],
-      github: "https://github.com/GATEWAY0710/logistic-regression",
+      description: "A library of reusable ETL scripts for data cleansing, standardisation, and recurring analytics workflows, built to cut down repetitive manual processing.",
+      tech: ["Python", "Pandas", "NumPy", "Jupyter", "Excel"],
+      github: null,
       icon: <Database size={20} />
     }
   ];
@@ -185,6 +201,7 @@ export default function Projects() {
                   </div>
 
                   <div style={{ display: 'flex', gap: '0.8rem' }}>
+                    {project.github && (
                     <a 
                       href={project.github} 
                       target="_blank" 
@@ -205,6 +222,7 @@ export default function Projects() {
                     >
                       <Github size={16} />
                     </a>
+                    )}
                   </div>
                 </div>
 

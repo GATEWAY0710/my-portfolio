@@ -8,28 +8,31 @@ export default function Hero() {
 
   const codeSnippets = {
     agent: {
-      filename: 'agent_chat.py',
+      filename: 'chat_service.py',
       language: 'python',
-      code: `from fastapi import FastAPI, Depends
-from langchain_openai import ChatOpenAI
-from database import get_student_db
+      code: `from fastapi import FastAPI, Request
+from fastapi.responses import StreamingResponse
+from ollama import AsyncClient
+from agentic.infrastructure.tools import TOOLS
 
 app = FastAPI(title="Student Portal AI Agent")
+ollama = AsyncClient(host="http://localhost:11434")
 
 @app.post("/agent/query")
-async def chat_with_portal(
-    prompt: str,
-    db = Depends(get_student_db)
-):
-    # Enforces RBAC & Student Isolation
-    agent = StudentAgent(
-        llm=ChatOpenAI(model="gpt-4o"),
-        tools=[db.query_results, db.get_timetable],
-        verbose=True
+async def query_portal(request: Request, prompt: str):
+    # Forward the caller's JWT to the school's backend, so the model
+    # acts on their behalf rather than holding its own auth state.
+    token = request.headers.get("authorization")
+
+    # Scoped tool schemas: the model never sees a student ID.
+    stream = await ollama.chat(
+        model="qwen2.5:1.5b",
+        messages=messages,
+        tools=TOOLS,
+        stream=True,
     )
-    
-    response = await agent.arun(prompt)
-    return {"response": response}`
+    return StreamingResponse(relay(stream))
+`
     },
     database: {
       filename: 'etl_pipeline.py',
@@ -60,24 +63,23 @@ def run_analytical_etl(raw_data_path):
     engineer: {
       filename: 'engineer.py',
       language: 'python',
-      code: `class FullStackEngineer:
+      code: `class BackendEngineer:
     def __init__(self):
         self.name = "Muhammed Nurudeen"
-        self.role = "Python & AI Specialist"
-        self.experience_years = 5
+        self.role = "Python Backend & AI/ML Engineer"
         self.core_stack = [
-            "FastAPI", "Django", 
-            "React.js", "PostgreSQL", 
-            "Scikit-learn", "LangChain"
+            "FastAPI", "Django", "SQLAlchemy",
+            "PyTorch", "MCP tool calling", "Ollama",
+            "AWS EC2", "Docker", "pytest"
         ]
 
     def architect_solution(self, requirements):
         # Bridging backend & AI
         return {
-            "backend": "Async FastAPI microservice",
-            "frontend": "Tailwind-styled React UI",
-            "intelligence": "Gemini/OpenAI LLM tool-use",
-            "result": "Optimized & Highly Scalable"
+            "backend": "Async FastAPI, JWT auth, versioned REST",
+            "frontend": "React UI over a streaming agent endpoint",
+            "intelligence": "Ollama-hosted models, scoped tool access",
+            "result": "Tested, containerised, deployed"
         }`
     }
   };
@@ -189,8 +191,8 @@ def run_analytical_etl(raw_data_path):
                 Let's Talk
               </a>
               <a 
-                href="/Muhammed_Nurudeen_CV.docx" 
-                download="Muhammed_Nurudeen_CV.docx"
+                href="/Muhammed_Nurudeen_CV.pdf" 
+                download="Muhammed_Nurudeen_CV.pdf"
                 className="btn btn-secondary"
                 style={{
                   display: 'flex',
@@ -246,21 +248,25 @@ def run_analytical_etl(raw_data_path):
                 boxShadow: '0 0 15px rgba(14, 165, 233, 0.4)'
                }}>
                 <img 
-                  src="/gateway.jpg" 
+                  src="/avatar.webp" 
                   alt="Muhammed Nurudeen" 
+                  width="60"
+                  height="60"
+                  loading="eager"
+                  decoding="async"
                   style={{
                     width: '100%',
                     height: '100%',
                     objectFit: 'cover'
                   }}
                   onError={(e) => {
-                    e.target.src = "/image.jpg"; // fallback to image.jpg
+                    e.target.src = "/avatar-fallback.jpg";
                   }}
                 />
               </div>
               <div>
                 <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-main)' }}>Muhammed Nurudeen</h4>
-                <p style={{ fontSize: '0.75rem', color: 'var(--primary)', fontWeight: 600 }}>Full-Stack & AI Engineer</p>
+                <p style={{ fontSize: '0.75rem', color: 'var(--primary)', fontWeight: 600 }}>Python Backend & AI/ML Engineer</p>
               </div>
             </div>
 
@@ -493,7 +499,7 @@ function highlightPython(line) {
   // Keywords
   const keywords = ['import', 'from', 'as', 'def', 'class', 'return', 'await', 'async', 'try', 'except', 'with', 'for', 'in', 'if', 'elif', 'else', 'is', 'not'];
   // Builtins / Decorators
-  const builtins = ['print', 'len', 'dict', 'str', 'int', 'Depends', 'get_student_db', 'StudentAgent', 'ChatOpenAI', 'pd', 'np', 'ValueError'];
+  const builtins = ['print', 'len', 'dict', 'str', 'int', 'Request', 'StreamingResponse', 'AsyncClient', 'ollama', 'pd', 'np', 'ValueError'];
   
   let result = line;
   
