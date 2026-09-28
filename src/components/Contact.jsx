@@ -22,6 +22,7 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState('');
+  const [mailtoLink, setMailtoLink] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,6 +30,7 @@ export default function Contact() {
 
     setIsSubmitting(true);
     setSubmitError('');
+    setMailtoLink('');
 
     // Posts to the "contact" form registered in index.html. Submissions land in the
     // Netlify dashboard under Forms.
@@ -51,7 +53,13 @@ export default function Contact() {
       setTimeout(() => setSubmitSuccess(false), 5000);
     } catch (err) {
       console.error('Contact form submission failed:', err);
-      setSubmitError('Your message could not be sent. Please email me directly at alowonleboy01@gmail.com.');
+      // Never lose a message: fall back to a prefilled draft in the visitor's mail app.
+      const subject = `Portfolio enquiry from ${formData.name}`;
+      const body = `${formData.message}\n\n— ${formData.name} (${formData.email})`;
+      setMailtoLink(
+        `mailto:alowonleboy01@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+      );
+      setSubmitError('Your message could not be sent from here. Use the button below and it will open in your email app, ready to send.');
     } finally {
       setIsSubmitting(false);
     }
@@ -362,7 +370,24 @@ export default function Contact() {
                     }}
                   >
                     <AlertCircle size={18} style={{ flexShrink: 0, marginTop: '1px' }} />
-                    <span>{submitError}</span>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.7rem' }}>
+                      <span>{submitError}</span>
+                      <a
+                        href={mailtoLink}
+                        className="btn btn-secondary"
+                        style={{
+                          alignSelf: 'flex-start',
+                          padding: '0.55rem 1.1rem',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '0.4rem',
+                          fontSize: '0.85rem',
+                          fontWeight: 600
+                        }}
+                      >
+                        <Mail size={14} /> Open in email app
+                      </a>
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
